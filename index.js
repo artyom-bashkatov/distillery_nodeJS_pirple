@@ -16,26 +16,27 @@ const helpers = require('./lib/helpers');
 // TESTING
 // @TODO delete this
 /* _data.create('test', 'newFile', {'foo':'bar'}, (err) => {
-  console.log("this was the error", err)
+  // console.log("this was the error", err)
 })
 
 _data.read('test', 'newFile',(err, data) => {
-  console.log("this was the error", err, 'and this was the data', data)
+  // console.log("this was the error", err, 'and this was the data', data)
 }) 
 
 _data.update('test', 'newFile', {'fizz':'buzz'}, (err) => {
-  console.log("this was the error", err)
+  // console.log("this was the error", err)
 })
 
 _data.delete('test', 'newFile', (err) => {
-  console.log("this was the error", err)
+  // console.log("this was the error", err)
 }) */
 
 // Define a request router
 const router = {
   ping: handlers.ping,
   users: handlers.users,
-  tokens: handlers.tokens
+  tokens: handlers.tokens,
+  checks: handlers.checks,
 };
 
 // All the server logic for both- the http and https server
@@ -55,7 +56,7 @@ const unifiedServer = (req, res) => {
 
   // Get the headers as an object
   const headers = req.headers;
-  console.log("Request received with these headers", headers);
+  // console.log("Request received with these headers", headers);
 
   // Get the payload, if any
   const decoder = new StringDecoder("utf8");
@@ -95,22 +96,22 @@ const unifiedServer = (req, res) => {
       res.end(payloadString);
 
       // Log the request path
-      console.log("Returning this response", statusCode, payloadString);
+      // console.log("Returning this response", statusCode, payloadString);
     });
 
     // Send the response
     // res.end("Hello World\n");
-    console.log("Request received with this payload", buffer);
+    // console.log("Request received with this payload", buffer);
 
     // Log the request path
-    console.log(
+    /* console.log(
       "Request received on path: " +
         trimmedPath +
         " with method: " +
         method +
         " with this query string parameters" +
         JSON.stringify(queryStringObject)
-    );
+    ); */
   });
 };
 
