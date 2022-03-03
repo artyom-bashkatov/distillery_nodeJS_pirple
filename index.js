@@ -13,6 +13,10 @@ const fs = require("fs");
 const handlers = require('./lib/handlers');
 const helpers = require('./lib/helpers');
 
+helpers.sendTwilioSms('+79002823501', 'Sms by Twilio Service', (err) => {
+  console.log('this was the error', err);
+})
+
 // TESTING
 // @TODO delete this
 /* _data.create('test', 'newFile', {'foo':'bar'}, (err) => {
